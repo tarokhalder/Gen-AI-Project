@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Editorial Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-icon">✦</div>
+                <div>
+                    <h2>AI Editorial</h2>
+                    <span>Programming Assistant</span>
+                </div>
+            </div>
+
+            <div class="stack">
+                <span>FastAPI</span>
+                <b>×</b>
+                <span>LangChain</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="badge">
+                <span class="dot"></span>
+                AI POWERED
+            </div>
+
+            <h1>
+                Turn Your Code Into
+                <span>Clear Editorials</span>
+            </h1>
+
+            <p>
+                Give us any programming problem and your solution.
+                Our AI will analyze it and generate a detailed editorial.
+            </p>
+        </section>
+
+        <section class="editor-card">
+
+            <div class="card-header">
+                <div>
+                    <h2>Generate Editorial</h2>
+                    <p>Enter your problem and solution below.</p>
+                </div>
+
+                <div class="ready">
+                    <span></span>
+                    Ready
+                </div>
+            </div>
+
+            <div class="field language-field">
+                <label for="language">Programming Language</label>
+
+                <select id="language">
+                    <option value="C++">C++</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="problem">Problem Statement</label>
+
+                <textarea
+                    id="problem"
+                    placeholder="Paste your programming problem here..."
+                ></textarea>
+            </div>
+
+            <div class="field">
+                <label for="code">Your Code</label>
+
+                <div class="code-box">
+                    <div class="code-header">
+                        <div class="circles">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="filename">
+                            solution
+                        </div>
+
+                        <div class="language-label">
+                            C++
+                        </div>
+                    </div>
+
+                    <textarea
+                        id="code"
+                        class="code-input"
+                        placeholder="Paste your code here..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <button id="generateBtn" type="button">
+                <span>✦</span>
+                Generate Editorial
+                <strong>→</strong>
+            </button>
+
+        </section>
+
+        <section id="loading" class="loading hidden">
+            <div class="spinner"></div>
+
+            <div>
+                <h3>Generating Editorial</h3>
+                <p>AI is analyzing your solution...</p>
+            </div>
+        </section>
+
+        <section id="output" class="output hidden">
+
+            <div class="output-header">
+                <div class="output-badge">
+                    ✦ GENERATED EDITORIAL
+                </div>
+
+                <h2>Your Solution Explained</h2>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>01</span>
+                    <h3>Approach</h3>
+                </div>
+
+                <p id="approach"></p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>02</span>
+                    <h3>Algorithm</h3>
+                </div>
+
+                <ul id="algorithm"></ul>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>03</span>
+                    <h3>Why It Works</h3>
+                </div>
+
+                <p id="whyWorks"></p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>04</span>
+                    <h3>Complexity</h3>
+                </div>
+
+                <p id="complexity"></p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>05</span>
+                    <h3>Code Explanation</h3>
+                </div>
+
+                <p id="codeExplanation"></p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>06</span>
+                    <h3>Common Mistakes</h3>
+                </div>
+
+                <ul id="mistakes"></ul>
+            </div>
+
+            <div class="result-card">
+                <div class="result-title">
+                    <span>07</span>
+                    <h3>Alternative Approach</h3>
+                </div>
+
+                <p id="alternative"></p>
+            </div>
+
+        </section>
+
+        <footer>
+            <span>AI Editorial Generator</span>
+            <span>Tarok Halder</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

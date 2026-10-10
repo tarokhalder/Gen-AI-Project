@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description" content="An AI-powered research assistant using Wikipedia, CrewAI and Groq.">
+    <title>AI Research Summarizer — Research Workspace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+        <a class="brand" href="index.html">
+            <span class="brand-icon">✳</span>
+            <span>AI Research Summarizer</span>
+        </a>
+
+        <nav class="nav-links">
+            <a class="nav-active" href="index.html">Workspace</a>
+            <a href="about.html">About project</a>
+        </nav>
+
+        <div class="status-pill">
+            <span class="status-dot"></span>
+            AI workspace
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="hero">
+            <div class="eyebrow">
+                <span class="eyebrow-icon">✦</span>
+                YOUR INTELLIGENT RESEARCH PARTNER
+            </div>
+
+            <h1>Curiosity, meet<br><span class="gradient-text">clarity.</span></h1>
+
+            <p class="hero-description">
+                Turn any topic into a structured research report.
+                Explore knowledge with AI, powered by Wikipedia and CrewAI.
+            </p>
+
+            <div class="hero-meta">
+                <span><span class="meta-check">✓</span> Source-based research</span>
+                <span><span class="meta-check">✓</span> Structured insights</span>
+                <span><span class="meta-check">✓</span> Instant reports</span>
+            </div>
+        </section>
+
+        <section class="workspace-grid">
+            <aside class="left-column">
+                <div class="panel search-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <div class="section-kicker">START EXPLORING</div>
+                            <h2>What are we researching?</h2>
+                        </div>
+                        <span class="heading-icon">⌕</span>
+                    </div>
+
+                    <form id="research-form">
+                        <label for="topic">Research topic</label>
+
+                        <div class="input-wrap">
+                            <span class="input-icon">✧</span>
+                            <input
+                                id="topic"
+                                name="topic"
+                                type="text"
+                                minlength="3"
+                                maxlength="200"
+                                placeholder="e.g. Artificial Intelligence"
+                                autocomplete="off"
+                                required
+                            >
+                        </div>
+
+                        <p class="field-hint">
+                            Be specific for more relevant research.
+                        </p>
+
+                        <button class="primary-button" type="submit" id="research-button">
+                            <span id="button-label">Generate research report</span>
+                            <span class="button-arrow">↗</span>
+                        </button>
+                    </form>
+
+                    <div class="suggestions">
+                        <div class="suggestion-title">NEED INSPIRATION?</div>
+
+                        <button class="topic-chip" type="button" data-topic="Artificial Intelligence">
+                            Artificial Intelligence <span>↗</span>
+                        </button>
+
+                        <button class="topic-chip" type="button" data-topic="Climate Change">
+                            Climate Change <span>↗</span>
+                        </button>
+
+                        <button class="topic-chip" type="button" data-topic="Quantum Computing">
+                            Quantum Computing <span>↗</span>
+                        </button>
+
+                        <button class="topic-chip" type="button" data-topic="Machine Learning">
+                            Machine Learning <span>↗</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel workflow-panel">
+                    <div class="section-kicker">BEHIND THE SCENES</div>
+                    <h3>Your research workflow</h3>
+
+                    <div class="workflow-step">
+                        <div class="step-icon step-purple">⌕</div>
+                        <div class="step-copy">
+                            <strong>01. Discover</strong>
+                            <p>Retrieve relevant Wikipedia articles.</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-line"></div>
+
+                    <div class="workflow-step">
+                        <div class="step-icon step-blue">✳</div>
+                        <div class="step-copy">
+                            <strong>02. Analyze</strong>
+                            <p>CrewAI organizes the supplied information.</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-line"></div>
+
+                    <div class="workflow-step">
+                        <div class="step-icon step-green">↗</div>
+                        <div class="step-copy">
+                            <strong>03. Present</strong>
+                            <p>Receive a structured report with sources.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="right-column">
+                <div class="panel report-panel">
+                    <div class="report-topbar">
+                        <div>
+                            <div class="section-kicker">YOUR RESEARCH DESK</div>
+                            <h2 id="report-heading">Research overview</h2>
+                        </div>
+
+                        <span class="report-badge" id="report-badge">READY</span>
+                    </div>
+
+                    <div id="welcome-state" class="welcome-state">
+                        <div class="orbit">
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring orbit-ring-two"></div>
+                            <div class="orbit-core">✳</div>
+                            <span class="orbit-star star-one">✦</span>
+                            <span class="orbit-star star-two">✧</span>
+                        </div>
+
+                        <h3>Your next discovery<br>starts here.</h3>
+
+                        <p>
+                            Enter a topic to transform scattered information
+                            into clear, useful insights.
+                        </p>
+
+                        <div class="welcome-mini-stats">
+                            <div>
+                                <strong>01</strong>
+                                <span>Choose a topic</span>
+                            </div>
+
+                            <div class="mini-divider"></div>
+
+                            <div>
+                                <strong>02</strong>
+                                <span>Generate insights</span>
+                            </div>
+
+                            <div class="mini-divider"></div>
+
+                            <div>
+                                <strong>03</strong>
+                                <span>Explore sources</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="loading-state" class="loading-state hidden">
+                        <div class="loader-orbit"><span>✳</span></div>
+
+                        <h3 id="loading-title">Research in progress</h3>
+
+                        <p id="loading-message">
+                            Collecting relevant knowledge...
+                        </p>
+
+                        <div class="loading-track">
+                            <span></span>
+                        </div>
+
+                        <p class="loading-note">
+                            Complex topics may take a little longer.
+                        </p>
+                    </div>
+
+                    <div id="error-state" class="error-state hidden">
+                        <div class="error-icon">!</div>
+
+                        <h3>We couldn't finish this research</h3>
+
+                        <p id="error-message">Please try again.</p>
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="retry-button"
+                        >
+                            Try again ↻
+                        </button>
+                    </div>
+
+                    <div id="result-state" class="result-state hidden">
+                        <div class="result-summary">
+                            <div class="result-label">RESEARCH TOPIC</div>
+
+                            <h3 id="result-topic"></h3>
+
+                            <div class="result-metadata">
+                                <span class="metadata-dot"></span>
+
+                                <span id="result-source-count">
+                                    0 sources found
+                                </span>
+
+                                <span class="metadata-separator">·</span>
+
+                                <span>AI-generated report</span>
+                            </div>
+                        </div>
+
+                        <div class="report-actions">
+                            <span class="section-kicker">FINAL REPORT</span>
+
+                            <button
+                                id="copy-button"
+                                class="secondary-button"
+                                type="button"
+                            >
+                                ▢ Copy report
+                            </button>
+                        </div>
+
+                        <article
+                            id="report-content"
+                            class="report-content"
+                        ></article>
+
+                        <div class="sources-heading">
+                            <div>
+                                <div class="section-kicker">EXPLORE FURTHER</div>
+                                <h3>Research sources</h3>
+                            </div>
+
+                            <span
+                                id="sources-count-badge"
+                                class="count-badge"
+                            >
+                                0
+                            </span>
+                        </div>
+
+                        <div id="sources-list" class="sources-list"></div>
+
+                        <p class="source-disclaimer">
+                            AI-generated summaries can contain errors.
+                            Check the original sources for important details.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bottom-note">
+                    <span class="note-shield">◇</span>
+
+                    <span>
+                        Built for learning, discovery and deeper thinking.
+                    </span>
+
+                    <span class="note-right">
+                        AI Research Summarizer <span>·</span> 01
+                    </span>
+                </div>
+            </section>
+        </section>
+
+        <footer class="footer">
+            <span>© 2026 AI Research Summarizer</span>
+
+            <span>
+                FastAPI
+                <span class="footer-dot">·</span>
+                Wikipedia
+                <span class="footer-dot">·</span>
+                CrewAI
+                <span class="footer-dot">·</span>
+                Groq
+            </span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

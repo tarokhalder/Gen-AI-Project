@@ -1,0 +1,24 @@
+[project]
+name = "research-summarizer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "crewai>=1.15.27",
+    "fastapi>=0.143.0",
+    "langchain>=1.4.4",
+    "langchain-groq>=1.1.3",
+    "litellm>=1.104.2",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+research-summarizer = "research_summarizer:main"
+
+[build-system]
+requires = ["uv_build>=0.12.24,<0.13.0"]
+build-backend = "uv_build"
